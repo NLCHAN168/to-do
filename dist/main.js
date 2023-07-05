@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./task.js */ \"./src/task.js\");\n\r\n\r\n\r\n\r\nconst todo = (0,_todo_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"mytodolist\");\r\nconst project = (0,_project_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"TOP\");\r\nconst firsttask = (0,_task_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\r\n  \"To do List\",\r\n  \"create a to-do list\",\r\n  \"03/08/2023\",\r\n  \"high\",\r\n  \"make the structure\"\r\n);\r\n\r\nproject.tasks.push(firsttask);\r\ntodo.tasks.push(project);\r\n\r\nconsole.log(todo);\r\n\n\n//# sourceURL=webpack://to-do/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./task.js */ \"./src/task.js\");\n\r\n\r\n\r\n\r\nconst project = (0,_project_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"TOP\");\r\nconst todo = (0,_todo_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"mytodolist\");\r\nconst firsttask = (0,_task_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\r\n  \"Make a new list\",\r\n  \"create a to-do list\",\r\n  \"03/08/2023\",\r\n  \"high\",\r\n  \"make the structure\"\r\n);\r\n\r\ntodo.tasks.push(firsttask);\r\nproject.todos.push(todo);\r\n\r\nconsole.log(project);\r\n\n\n//# sourceURL=webpack://to-do/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tod
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ newProject)\n/* harmony export */ });\nfunction newProject(name) {\r\n  return {\r\n    name: name,\r\n    tasks: [],\r\n  };\r\n}\r\n\n\n//# sourceURL=webpack://to-do/./src/project.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ newProject)\n/* harmony export */ });\nfunction newProject(name) {\r\n  return {\r\n    name: name,\r\n    todos: [],\r\n  };\r\n}\r\n\n\n//# sourceURL=webpack://to-do/./src/project.js?");
 
 /***/ }),
 
@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createToDo)\n/* harmony export */ });\nfunction createToDo(name) {\r\n  return {\r\n    name: name,\r\n    projects: [],\r\n    tasks: [],\r\n  };\r\n}\r\n\n\n//# sourceURL=webpack://to-do/./src/todo.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createToDo)\n/* harmony export */ });\nfunction createToDo(name) {\r\n  return {\r\n    name: name,\r\n    tasks: [],\r\n  };\r\n}\r\n\n\n//# sourceURL=webpack://to-do/./src/todo.js?");
 
 /***/ })
 
