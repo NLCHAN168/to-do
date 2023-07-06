@@ -12,6 +12,14 @@ export default function createTask(
     dueDate: dueDate,
     priority: priority,
     notes: notes,
-    checklist: checklist,
-  };
+    checklist: false,
+    check() {
+      if (checklist == false) {
+        checklist = true;
+      }
+      else {
+        checklist = false;
+      }
+    }
+  }
 }

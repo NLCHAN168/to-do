@@ -16,7 +16,17 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./task.js */ \"./src/task.js\");\n\r\n\r\n\r\n\r\nconst project = (0,_project_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"TOP\");\r\nconst todo = (0,_todo_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"mytodolist\");\r\nconst firsttask = (0,_task_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\r\n  \"Make a new list\",\r\n  \"create a to-do list\",\r\n  \"03/08/2023\",\r\n  \"high\",\r\n  \"make the structure\"\r\n);\r\n\r\ntodo.tasks.push(firsttask);\r\nproject.todos.push(todo);\r\n\r\nconsole.log(project);\r\n\n\n//# sourceURL=webpack://to-do/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _portfolio_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./portfolio.js */ \"./src/portfolio.js\");\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./task.js */ \"./src/task.js\");\n\r\n\r\n\r\n\r\n\r\nconst portfolio = (0,_portfolio_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"My Projects\");\r\nconst project = (0,_project_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"The Odin Project\");\r\nconst todo = (0,_todo_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"My to-do list\");\r\nconst firsttask = (0,_task_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(\r\n  \"Make a new list\",\r\n  \"create a to-do list\",\r\n  \"03/08/2023\",\r\n  \"high\",\r\n  \"make the structure\"\r\n);\r\n\r\nfirsttask.check();\r\ntodo.tasks.push(firsttask);\r\nproject.todos.push(todo);\r\nportfolio.projects.push(project);\r\nconsole.log(portfolio);\r\n\n\n//# sourceURL=webpack://to-do/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/portfolio.js":
+/*!**************************!*\
+  !*** ./src/portfolio.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ newPortfolio)\n/* harmony export */ });\nfunction newPortfolio(name) {\r\n    return {\r\n      name: name,\r\n      projects: [],\r\n    };\r\n  }\r\n  \n\n//# sourceURL=webpack://to-do/./src/portfolio.js?");
 
 /***/ }),
 
@@ -36,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createTask)\n/* harmony export */ });\nfunction createTask(\r\n  title,\r\n  description,\r\n  dueDate,\r\n  priority,\r\n  notes,\r\n  checklist\r\n) {\r\n  return {\r\n    title: title,\r\n    description: description,\r\n    dueDate: dueDate,\r\n    priority: priority,\r\n    notes: notes,\r\n    checklist: checklist,\r\n  };\r\n}\r\n\n\n//# sourceURL=webpack://to-do/./src/task.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createTask)\n/* harmony export */ });\nfunction createTask(\r\n  title,\r\n  description,\r\n  dueDate,\r\n  priority,\r\n  notes,\r\n  checklist\r\n) {\r\n  return {\r\n    title: title,\r\n    description: description,\r\n    dueDate: dueDate,\r\n    priority: priority,\r\n    notes: notes,\r\n    checklist: false,\r\n    check() {\r\n      if (checklist == false) {\r\n        checklist = true;\r\n      }\r\n      else {\r\n        checklist = false;\r\n      }\r\n    }\r\n  }\r\n}\n\n//# sourceURL=webpack://to-do/./src/task.js?");
 
 /***/ }),
 
