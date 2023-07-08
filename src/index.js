@@ -1,7 +1,7 @@
 import createPortfolio from "./portfolio.js";
 import createToDo from "./todo.js";
 import newProject from "./project.js";
-import createTask from "./task.js";
+import {createTask} from "./task.js";
 
 const portfolio = createPortfolio("My Projects");
 const project = newProject("The Odin Project");
@@ -14,8 +14,9 @@ const firsttask = createTask(
   "make the structure"
 );
 
-firsttask.check();
 todo.tasks.push(firsttask);
 project.todos.push(todo);
 portfolio.projects.push(project);
-console.log(portfolio);
+console.log(firsttask);
+firsttask.check();
+console.log(firsttask);

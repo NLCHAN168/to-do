@@ -1,4 +1,4 @@
-export default function createTask(
+/*export default function createTask(
   title,
   description,
   dueDate,
@@ -13,13 +13,12 @@ export default function createTask(
     priority: priority,
     notes: notes,
     checklist: false,
-    check() {
-      if (checklist == false) {
-        checklist = true;
-      }
-      else {
-        checklist = false;
-      }
-    }
   }
 }
+*/
+const createTask = (title, description, dueDate, priority, notes, checklist) => {
+  let check = () => checklist = !checklist;
+  return {title, description, dueDate, priority, notes, checklist: false, check}
+};
+
+export {createTask};
