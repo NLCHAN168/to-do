@@ -14,12 +14,7 @@ export default function createTask(
     notes: notes,
     checklist: false,
     check() {
-      if (checklist == false) {
-        checklist = true;
-      }
-      else {
-        checklist = false;
-      }
+      this.checklist = !this.checklist;
     }
   }
 }
