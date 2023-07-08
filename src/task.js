@@ -13,12 +13,8 @@
     priority: priority,
     notes: notes,
     checklist: false,
+    check() {
+      this.checklist = !this.checklist;
+    }
   }
 }
-*/
-const createTask = (title, description, dueDate, priority, notes, checklist) => {
-  let check = () => checklist = !checklist;
-  return {title, description, dueDate, priority, notes, checklist: false, check}
-};
-
-export {createTask};
