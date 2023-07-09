@@ -3,5 +3,6 @@ export default function newPortfolio(name) {
       name: name,
       projects: [],
     };
+    // add / remove project
   }
   

@@ -12,9 +12,39 @@ export default function createTask(
     dueDate: dueDate,
     priority: priority,
     notes: notes,
-    checklist: false,
+    checklist: checklist,
+    changeTitle(newTitle) {
+      this.title = newTitle;
+    },
+    changeDes(newDes) {
+      this.description = newDes;
+    },
+    changeDate(newDate) {
+      this.dueDate = newDate;
+    },
+    changePrio(prio) {
+      this.priority = prio;
+    },
+    changeNotes(newNote) {
+      this.notes = newNote;
+    },
     check() {
-      this.checklist = !this.checklist;
+      this.checklist = !checklist;
+    },
+    getTitle() {
+      return title;
+    },
+    getDes() {
+      return description;
+    },
+    getPrio() {
+      return prio;
+    },
+    getNotes() {
+      return notes;
+    },
+    getCheck() {
+      return checklist;
     }
   }
 }
