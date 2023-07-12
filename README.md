@@ -1,4 +1,3 @@
-Unknown command: "echo"
+## Todo Application
 
-To see a list of supported npm commands, run:
-  npm help
+Run `npm run build` to have webpack compile into a main.js and index.html in the ./dist folder
