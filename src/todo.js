@@ -1,5 +1,4 @@
 export default function createToDo(name) {
-  name
   return {
     name: name,
     tasks: [],
@@ -7,7 +6,7 @@ export default function createToDo(name) {
       this.name = newName;
     },
     getName() {
-      return name;
+      return this.name;
     },
     removeTask(task) {
       for (let i = 0; i < this.tasks.length; i++) {

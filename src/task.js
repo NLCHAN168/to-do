@@ -32,19 +32,19 @@ export default function createTask(
       this.checklist = !checklist;
     },
     getTitle() {
-      return title;
+      return this.title;
     },
     getDes() {
-      return description;
+      return this.description;
     },
     getPrio() {
-      return prio;
+      return this.prio;
     },
     getNotes() {
-      return notes;
+      return this.notes;
     },
     getCheck() {
-      return checklist;
+      return this.checklist;
     }
   }
 }
