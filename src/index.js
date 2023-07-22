@@ -18,14 +18,11 @@ const firsttask = createTask(
 todo.tasks.push(firsttask);
 project.todos.push(todo);
 portfolio.projects.push(project);
-// console.log(firsttask);
-// console.log("call check function")
+// portfolio.removeProject(project);
 firsttask.changeTitle("new title");
 firsttask.changeDes("new des");
 firsttask.changeDate("new date");
 firsttask.changePrio("new prio");
 firsttask.changeNotes("new notes");
 firsttask.check();
-console.log(todo);
-todo.removeTask("new title");
-console.log(todo);
+console.log(portfolio);
