@@ -1,4 +1,3 @@
-import createToDo from "./todo";
 
 export default function newProject(name) {
   return {
