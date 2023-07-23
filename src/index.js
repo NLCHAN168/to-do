@@ -1,7 +1,14 @@
 import createPortfolio from "./portfolio.js";
 import createToDo from "./todo.js";
 import newProject from "./project.js";
-import createTask from "./task.js";
+import createTask, {
+  changeTitle,
+  changeDes,
+  changeDate,
+  changePrio,
+  changeNotes,
+  check,
+} from "./task.js";
 
 const portfolio = createPortfolio("My Projects");
 const project = newProject("The Odin Project");
@@ -18,7 +25,6 @@ const firsttask = createTask(
 todo.tasks.push(firsttask);
 project.todos.push(todo);
 portfolio.projects.push(project);
-// portfolio.removeProject(project);
 firsttask.changeTitle("new title");
 firsttask.changeDes("new des");
 firsttask.changeDate("new date");
