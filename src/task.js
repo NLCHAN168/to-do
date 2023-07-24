@@ -1,11 +1,6 @@
-export default function createTask(
-  title,
-  description,
-  dueDate,
-  priority,
-  notes,
-  checklist
-) {
+let title, description, dueDate, priority, notes, checklist;
+
+function createTask(title, description, dueDate, priority, notes, checklist) {
   return {
     title,
     description,
@@ -17,22 +12,22 @@ export default function createTask(
 }
 
 function setTitle(newTitle) {
-  this.title = newTitle;
+  return (title = newTitle);
 }
 function setDes(newDes) {
-  this.description = newDes;
+  return (description = newDes);
 }
 function setDate(newDate) {
-  this.dueDate = newDate;
+  return (dueDate = newDate);
 }
 function setPrio(prio) {
-  this.priority = prio;
+  return (priority = prio);
 }
 function setNotes(newNote) {
-  this.notes = newNote;
+  return (notes = newNote);
 }
 function check() {
-  this.checklist = !checklist;
+  return (checklist = !checklist);
 }
 
-export { setTitle, setDes, setDate, setPrio, setNotes, check };
+export { createTask, setTitle, setDes, setDate, setPrio, setNotes, check };
