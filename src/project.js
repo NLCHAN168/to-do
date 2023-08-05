@@ -9,7 +9,7 @@ export default function newProject(name) {
     },
     removeTodo(todo) {
       for (let i = 0; i < this.todos.length; i++) {
-        if (this.todos[i] == todo) {
+        if (this.todos[i] === todo) {
           this.todos.splice(i, 1);
         }
       }
