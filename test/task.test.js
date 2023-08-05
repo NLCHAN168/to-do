@@ -34,31 +34,42 @@ test("Changing description", () => {
 test("Changing due date", () => {
   let temp = { ...task };
   let testDate = "04/08/2023";
-  temp.setDate(testDate);
+  temp.setDue(testDate);
   expect(temp.dueDate).toBe(testDate);
 });
 
-test.skip("Changing priority", () => {
+test("Changing priority", () => {
   let temp = { ...task };
-  expect(temp.priority).toBe("low");
+  let testPrio = "high";
+  temp.setPrio(testPrio);
+  expect(temp.priority).toBe(testPrio);
 });
 
-test.skip("Changing notes", () => {
+test("Changing notes", () => {
   let temp = { ...task };
-  expect(temp.notes).toBe("New Notes");
+  let notes = "These are some random notes";
+  temp.setNotes(notes)
+  expect(temp.notes).toBe(notes);
 });
 
-test.skip("Changing checklist", () => {
+test("Changing completion statusw", () => {
   let temp = { ...task };
-  expect(temp.checklist).toBe(false);
+  temp.check();
+  expect(temp.checklist).toBe(true);
 });
 
 /************************
  * INVALID INPUT TESTING
 *************************/
 
-test.skip("Throw on invalid date", () => {
+test("Throw on invalid date", () => {
   let temp = { ...task };
   let testDate = "something wrong";
-  expect(() => temp.setDate(testDate)).toThrow("Invalid date format. Please use \"mm/dd/yyyy\"");
+  expect(() => temp.setDue(testDate)).toThrow("Invalid date format. Please use \"mm/dd/yyyy\"");
 });
+
+test("Throw on invalid priority", () => {
+  let temp = { ...task };
+  let testPriority = "important";
+  expect(() => temp.setPrio(testPriority)).toThrow("Invalid priority, please use [low, medium, high, urgent]");
+})

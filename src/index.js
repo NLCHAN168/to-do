@@ -13,7 +13,6 @@ const firstTask = createTask(
   "make the structure",
   false
 );
-
 todo.addTask(firstTask);
 project.addTodo(todo);
 portfolio.addProject(project);
