@@ -3,31 +3,39 @@ import createTask from "../src/task";
 const task = createTask("TestTitle", "TestDescription", "03/08/2023", "high"
   , "TestNotes", false);
 
+/*********************************
+ * DEFAULT FUNCTIONALITY TESTING
+*********************************/
+
 test("Creating a task", () => {
-  const task = createTask("TestTitle", "TestDescription", "03/08/2023", "high"
-    , "TestNotes", false);
-  expect(task.title).toBe("TestTitle");
-  expect(task.description).toBe("TestDescription");
-  expect(task.dueDate).toBe("03/08/2023");
-  expect(task.priority).toBe("high");
-  expect(task.notes).toBe("TestNotes");
-  expect(task.checklist).toBe(false);
+  let temp = { ...task };
+  expect(temp.title).toBe("TestTitle");
+  expect(temp.description).toBe("TestDescription");
+  expect(temp.dueDate).toBe("03/08/2023");
+  expect(temp.priority).toBe("high");
+  expect(temp.notes).toBe("TestNotes");
+  expect(temp.checklist).toBe(false);
 });
 
 test("Changing title", () => {
   let temp = { ...task };
-  temp.setTitle("TestTitle2");
-  expect(temp.title).toBe("TestTitle2");
+  let testTitle = "TestTitle2";
+  temp.setTitle(testTitle);
+  expect(temp.title).toBe(testTitle);
 });
 
-test.skip("Changing description", () => {
+test("Changing description", () => {
   let temp = { ...task };
-  expect(temp.description).toBe("New Description");
+  let someNewDesc = "New Description";
+  temp.setDes(someNewDesc)
+  expect(temp.description).toBe(someNewDesc);
 });
 
-test.skip("Changing due date", () => {
+test("Changing due date", () => {
   let temp = { ...task };
-  expect(temp.dueDate).toBe("04/08/2023");
+  let testDate = "04/08/2023";
+  temp.setDate(testDate);
+  expect(temp.dueDate).toBe(testDate);
 });
 
 test.skip("Changing priority", () => {
@@ -43,4 +51,14 @@ test.skip("Changing notes", () => {
 test.skip("Changing checklist", () => {
   let temp = { ...task };
   expect(temp.checklist).toBe(false);
+});
+
+/************************
+ * INVALID INPUT TESTING
+*************************/
+
+test.skip("Throw on invalid date", () => {
+  let temp = { ...task };
+  let testDate = "something wrong";
+  expect(() => temp.setDate(testDate)).toThrow("Invalid date format. Please use \"mm/dd/yyyy\"");
 });
