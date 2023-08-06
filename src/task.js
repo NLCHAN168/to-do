@@ -1,30 +1,23 @@
 /**
- * Creates a new task with the given parameters.
- *
- * @param {string} title - The title of the task.
- * @param {string} description - The description of the task.
- * @param {string} dueDate - The due date of the task.
- * @param {string} priority - The priority of the task.
- * @param {string} notes - The notes for the task.
- * @param {boolean} checklist - The checklist for the task.
- * @return {Task} Returns an object representing the task.
+ * @typedef {object} Task
+ * @property {string} title - The title of the task.
+ * @property {string} description - The description of the task.
+ * @property {string} dueDate - The due date of the task.
+ * @property {string} priority - The priority of the task.
+ * @property {string} notes - The notes for the task.
+ * @property {boolean} checklist - The checklist for the task.
+ * @property {function} setTitle
+ * @property {function} setDes
+ * @property {function} setDue
+ * @property {function} setPrio
+ * @property {function} setNotes
+ * @property {function} check - Toggles completion state of the task.
+ * @property {function} isValidDate
  */
 export default function createTask(title, description, dueDate, priority, notes, checklist) {
+
   /**
-   * @typedef {object} Task
-   * @property {string} title - The title of the task.
-   * @property {string} description - The description of the task.
-   * @property {string} dueDate - The due date of the task.
-   * @property {string} priority - The priority of the task.
-   * @property {string} notes - The notes for the task.
-   * @property {boolean} checklist - The checklist for the task.
-   * @property {function} setTitle
-   * @property {function} setDes
-   * @property {function} setDue
-   * @property {function} setPrio
-   * @property {function} setNotes
-   * @property {function} check - Toggles completion state of the task.
-   * @property {function} isValidDate
+   * @returns {Task}
    */
 
   return {

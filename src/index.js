@@ -1,3 +1,5 @@
+// @ts-check
+
 import createPortfolio from "./portfolio.js";
 import createToDo from "./todo.js";
 import newProject from "./project.js";
@@ -16,3 +18,6 @@ const firstTask = createTask(
 todo.addTask(firstTask);
 project.addTodo(todo);
 portfolio.addProject(project);
+portfolio.projects[0].todos[0].tasks[0].setDes("Some new description");
+
+

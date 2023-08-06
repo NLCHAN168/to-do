@@ -1,7 +1,22 @@
+/**
+ * @typedef {import("./project.js").Project} Project
+ */
+
+/**
+ * @typedef {object} Portfolio
+ * @property {string} name - Name of portfolio
+ * @property {Project[]} projects - Array of projects
+ * @property {function} addProject
+ * @property {function} removeProject
+ */
+
 export default function newPortfolio(name) {
+  /**
+   * @returns {Portfolio}
+   */
   return {
     name: name,
-    projects: [],
+    projects: /**@type {Project[]} */ ([]),
     addProject(project) {
       this.projects.push(project);
     },
