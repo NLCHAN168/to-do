@@ -26,6 +26,6 @@ export default function newPortfolio(name) {
           this.projects.splice(i, 1);
         }
       }
-    }
+    },
   };
 }
