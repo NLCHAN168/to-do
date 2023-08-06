@@ -18,13 +18,13 @@
 /**
  * Function Factory to return a Task object
  * @param {string} title
- * @param {string} description
- * @param {string} dueDate - Date should be in "mm/dd/yyyy" format
- * @param {string} priority - Should be "low", "high", "medium" or "urgent"
- * @param {string} notes
- * @param {boolean} checklist
+ * @param {string} [description]
+ * @param {string} [dueDate="01/01/2024"] - Date should be in "mm/dd/yyyy" format
+ * @param {string} [priority="low"] - Should be "low", "high", "medium" or "urgent"
+ * @param {string} [notes]
+ * @param {boolean} [checklist=false]
  */
-export default function createTask(title, description, dueDate, priority, notes, checklist) {
+export default function createTask(title, description = "", dueDate = "01/01/2024", priority = "low", notes = "", checklist = false) {
 
   /**
    * @returns {Task}
