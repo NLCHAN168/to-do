@@ -14,6 +14,16 @@
  * @property {function} check - Toggles completion state of the task.
  * @property {function} isValidDate
  */
+
+/**
+ * Function Factory to return a Task object
+ * @param {string} title
+ * @param {string} description
+ * @param {string} dueDate - Date should be in "mm/dd/yyyy" format
+ * @param {string} priority - Should be "low", "high", "medium" or "urgent"
+ * @param {string} notes
+ * @param {boolean} checklist
+ */
 export default function createTask(title, description, dueDate, priority, notes, checklist) {
 
   /**
