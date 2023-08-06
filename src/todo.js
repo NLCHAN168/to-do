@@ -39,7 +39,7 @@ export default function createToDo(name) {
      */
     removeTask(task) {
       for (let i = 0; i < this.tasks.length; i++) {
-        if (this.tasks[i].title === task) {
+        if (this.tasks[i] === task) {
           this.tasks.splice(i, 1);
         }
       }
