@@ -1,3 +1,9 @@
+/**
+ * @typedef {import('./task.js').Task} Task
+ * @typedef {import('./project.js').Project} Project
+ * @typedef {import('./todo.js').Todo} Todo
+ * @typedef {import('./portfolio.js').Portfolio} Portfolio
+ */
 import newPortfolio from "./portfolio.js";
 import createToDo from "./todo.js";
 import newProject from "./project.js";
@@ -15,17 +21,61 @@ const firsttask = createTask(
   false
 );
 
-const tododiv = document.createElement("div");
-tododiv.id = "todo";
-const listdiv = document.createElement("div");
-
-export default function addProjectDiv(title) {
-  let newDiv = portfolio.addProject(title);
-  let newDivTitle = title;
-  let newTodo = createToDo(title);
-  project.addTodo(newTodo);
-  let projDiv = document.createElement("div");
-  projDiv.id = newDivTitle;
-  listdiv.appendChild(projDiv);
-  return listdiv;
+/**
+ * @param {Task} task 
+ * @returns {HTMLDivElement} Returns handle to the div holding current task
+ */
+export function createTaskDiv(task) {
+  let div = document.createElement('div');
+  let titleDiv = document.createElement('div');
+  titleDiv.innerText = task.title;
+  div.appendChild(titleDiv);
+  return div;
 }
+
+/**
+ * @param {Todo} todo
+ * @returns {HTMLDivElement} Returns handle to the div holding all the tasks
+ */
+export function createTodoDiv(todo) {
+  let div = document.createElement('div');
+  let titleDiv = document.createElement('div');
+  titleDiv.innerText = todo.name;
+  div.appendChild(titleDiv);
+  for (let task of todo.tasks) {
+    div.appendChild(createTaskDiv(task));
+  }
+  return div;
+}
+
+/**
+ * @param {Project} project 
+ * @returns {HTMLDivElement} Returns a handle to the container for the project div
+ */
+export function createProjectDiv(project) {
+  let div = document.createElement('div');
+  let titleDiv = document.createElement('div');
+  titleDiv.innerText = project.name;
+  div.appendChild(titleDiv);
+  for (let todo of project.todos) {
+    div.appendChild(createTodoDiv(todo));
+  }
+  return div;
+}
+
+/**
+ * @param {Portfolio} portfolio
+ * @returns {HTMLDivElement} Returns a handle to the div containing the entire portfolio
+ */
+export function createPortfolioDiv(portfolio) {
+  let div = document.createElement('div');
+  let titleDiv = document.createElement('div');
+  titleDiv.innerText = portfolio.name;
+  div.appendChild(titleDiv);
+  for (let project of portfolio.projects) {
+    div.appendChild(createProjectDiv(project));
+  }
+  return div;
+}
+
+
