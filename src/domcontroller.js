@@ -1,20 +1,32 @@
+import createTask from "./task.js";
+
 let projects = [];
 
 //function that adds/removes todo node from DOM
 function createTodoNode(todo) {
   let div = document.createElement("div");
   div.id = todo.name;
-  let button = document.createElement("button");
-  button.innerText = "remove";
-  button.addEventListener("click", () => {
+  let rmv = document.createElement("button");
+  rmv.innerText = "remove";
+  rmv.addEventListener("click", () => {
     projects = projects.filter((e) => e != todo);
-    button.remove();
+    rmv.remove();
     let node = document.getElementById(div.id);
     if (node.parentNode) {
       node.parentNode.removeChild(node);
     }
   });
-  div.appendChild(button);
+  div.appendChild(rmv);
+  let add = document.createElement("button");
+  add.innerText = "+";
+  //button that adds a task current todo list
+  add.addEventListener("click", () => {
+    const newTask = prompt("New Task");
+    const task = createTask(newTask);
+    todo.tasks.push(task);
+    div.appendChild(createTaskNode(task, todo));
+  });
+  div.appendChild(add);
   projects.push(todo);
   return div;
 }
