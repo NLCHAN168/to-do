@@ -6,6 +6,7 @@ let projects = [];
 function createTodoNode(todo) {
   let div = document.createElement("div");
   div.id = todo.name;
+  div.innerText = todo.name;
   let rmv = document.createElement("button");
   rmv.innerText = "remove";
   rmv.addEventListener("click", () => {
@@ -35,6 +36,7 @@ function createTodoNode(todo) {
 function createTaskNode(task, todo) {
   let tasknode = document.createElement("div");
   tasknode.id = task.title;
+  tasknode.innerText = task.title;
   let button = document.createElement("button");
   button.innerText = "remove";
   button.addEventListener("click", () => {
