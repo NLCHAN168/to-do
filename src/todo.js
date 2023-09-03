@@ -3,7 +3,7 @@
  */
 
 /**
- * 
+ *
  * @typedef {object} Todo
  * @property {string} name - The name of the todo list
  * @property {Task[]} tasks - Array of tasks
@@ -18,23 +18,23 @@ export default function createToDo(name) {
    */
   return {
     name: name,
-    tasks: /** @type {Task[]} */([]),
+    tasks: /** @type {Task[]} */ ([]),
     /**
-     * 
+     *
      * @param {string} newName - New name for the todo list.wwwww
      */
     changeName(newName) {
       this.name = newName;
     },
     /**
-     * 
+     *
      * @param {Task} task - Task to push into the tasks array.
      */
     addTask(task) {
       this.tasks.push(task);
     },
     /**
-     * 
+     *
      * @param {Task} task - Task to remove from the tasks array.
      */
     removeTask(task) {
@@ -43,6 +43,6 @@ export default function createToDo(name) {
           this.tasks.splice(i, 1);
         }
       }
-    }
+    },
   };
 }

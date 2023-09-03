@@ -1,31 +1,40 @@
-import newPortfolio from "./portfolio.js";
-import createToDo from "./todo.js";
-import newProject from "./project.js";
-import createTask from "./task.js";
+let projects = [];
 
-const portfolio = newPortfolio("My Projects");
-const project = newProject("The Odin Project");
-const todo = createToDo("My to-do list");
-const firsttask = createTask(
-  "Make a new list",
-  "create a to-do list",
-  "03/08/2023",
-  "high",
-  "make the structure",
-  false
-);
-
-const tododiv = document.createElement("div");
-tododiv.id = "todo";
-const listdiv = document.createElement("div");
-
-export default function addProjectDiv(title) {
-  let newDiv = portfolio.addProject(title);
-  let newDivTitle = title;
-  let newTodo = createToDo(title);
-  project.addTodo(newTodo);
-  let projDiv = document.createElement("div");
-  projDiv.id = newDivTitle;
-  listdiv.appendChild(projDiv);
-  return listdiv;
+//function that adds/removes todo node from DOM
+function createTodoNode(todo) {
+  let div = document.createElement("div");
+  div.id = todo.name;
+  let button = document.createElement("button");
+  button.innerText = "remove";
+  button.addEventListener("click", () => {
+    projects = projects.filter((e) => e != todo);
+    button.remove();
+    let node = document.getElementById(div.id);
+    if (node.parentNode) {
+      node.parentNode.removeChild(node);
+    }
+  });
+  div.appendChild(button);
+  projects.push(todo);
+  return div;
 }
+
+//function that adds/removes task node from dom
+function createTaskNode(task, todo) {
+  let tasknode = document.createElement("div");
+  tasknode.id = task.title;
+  let button = document.createElement("button");
+  button.innerText = "remove";
+  button.addEventListener("click", () => {
+    todo.tasks.splice(todo.tasks.indexOf(task), 1);
+    button.remove();
+    let node = document.getElementById(tasknode.id);
+    if (node.parentNode) {
+      node.parentNode.removeChild(node);
+    }
+  });
+  tasknode.appendChild(button);
+  return tasknode;
+}
+
+export { projects, createTodoNode, createTaskNode };
