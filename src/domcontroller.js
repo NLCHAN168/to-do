@@ -1,4 +1,5 @@
 import createTask from "./task.js";
+import createToDo from "./todo.js";
 
 let projects = [];
 
@@ -8,7 +9,7 @@ function createTodoNode(todo) {
   div.id = todo.name;
   div.innerText = todo.name;
   let rmv = document.createElement("button");
-  rmv.innerText = "remove";
+  rmv.innerText = "Completed";
   rmv.addEventListener("click", () => {
     projects = projects.filter((e) => e != todo);
     rmv.remove();
@@ -19,13 +20,15 @@ function createTodoNode(todo) {
   });
   div.appendChild(rmv);
   let add = document.createElement("button");
-  add.innerText = "+";
+  add.innerText = "New Task";
   //button that adds a task current todo list
   add.addEventListener("click", () => {
     const newTask = prompt("New Task");
-    const task = createTask(newTask);
-    todo.tasks.push(task);
-    div.appendChild(createTaskNode(task, todo));
+    if (newTask.length > 0) {
+      const task = createTask(newTask);
+      todo.tasks.push(task);
+      div.appendChild(createTaskNode(task, todo));
+    }
   });
   div.appendChild(add);
   projects.push(todo);
@@ -38,7 +41,7 @@ function createTaskNode(task, todo) {
   tasknode.id = task.title;
   tasknode.innerText = task.title;
   let button = document.createElement("button");
-  button.innerText = "remove";
+  button.innerText = "Completed";
   button.addEventListener("click", () => {
     todo.tasks.splice(todo.tasks.indexOf(task), 1);
     button.remove();
@@ -51,4 +54,12 @@ function createTaskNode(task, todo) {
   return tasknode;
 }
 
-export { projects, createTodoNode, createTaskNode };
+function addTodo() {
+  let name = prompt("New Todo");
+  if (name.length > 0) {
+    let newTodo = createToDo(name);
+    document.body.appendChild(createTodoNode(newTodo));
+  }
+}
+
+export { projects, createTodoNode, createTaskNode, addTodo };
