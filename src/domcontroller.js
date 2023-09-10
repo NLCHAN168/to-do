@@ -6,8 +6,13 @@ let projects = [];
 //function that adds/removes todo node from DOM
 function createTodoNode(todo) {
   let div = document.createElement("div");
+  let checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.id = "check";
+  let label = document.createElement("label");
+  label.setAttribute("for", "check");
   div.id = todo.name;
-  div.innerText = todo.name;
+  label.innerText = todo.name;
   let rmv = document.createElement("button");
   rmv.innerText = "Completed";
   rmv.addEventListener("click", () => {
@@ -18,6 +23,8 @@ function createTodoNode(todo) {
       node.parentNode.removeChild(node);
     }
   });
+  div.appendChild(checkbox);
+  div.appendChild(label);
   div.appendChild(rmv);
   let add = document.createElement("button");
   add.innerText = "New Task";
@@ -38,10 +45,13 @@ function createTodoNode(todo) {
 //function that adds/removes task node from dom
 function createTaskNode(task, todo) {
   let tasknode = document.createElement("div");
+  let checkbox = document.createElement("input");
+  let label = document.createElement("label");
+  label.innerText = task.title;
+  checkbox.type = "checkbox";
   tasknode.id = task.title;
-  tasknode.innerText = task.title;
   let button = document.createElement("button");
-  button.innerText = "Completed";
+  button.innerText = "Remove";
   button.addEventListener("click", () => {
     todo.tasks.splice(todo.tasks.indexOf(task), 1);
     button.remove();
@@ -50,6 +60,8 @@ function createTaskNode(task, todo) {
       node.parentNode.removeChild(node);
     }
   });
+  tasknode.appendChild(checkbox);
+  tasknode.appendChild(label);
   tasknode.appendChild(button);
   return tasknode;
 }
