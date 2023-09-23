@@ -3,6 +3,9 @@ import createToDo from "./todo.js";
 
 let projects = [];
 
+//div that holds last task description/details
+let detaildiv = document.createElement("div");
+detaildiv.id = "details-div";
 //function that adds/removes todo node from DOM
 function createTodoNode(todo) {
   let div = document.createElement("div");
@@ -50,11 +53,33 @@ function createTaskNode(task, todo) {
   label.innerText = task.title;
   checkbox.type = "checkbox";
   tasknode.id = task.title;
-  let button = document.createElement("button");
-  button.innerText = "Remove";
-  button.addEventListener("click", () => {
+  let details = document.createElement("button");
+  details.innerText = "Details";
+  details.addEventListener("click", () => {
+    if (detaildiv.hasChildNodes()) {
+      detaildiv.firstChild.remove();
+    }
+    detaildiv.innerText =
+      "Task: " +
+      task.title +
+      "\n" +
+      "Description: " +
+      task.description +
+      "\n" +
+      "Due date: " +
+      task.duedate +
+      "\n" +
+      "Priority: " +
+      task.priority +
+      "\n" +
+      "Notes: " +
+      task.notes;
+  });
+  let remove = document.createElement("button");
+  remove.innerText = "Remove";
+  remove.addEventListener("click", () => {
     todo.tasks.splice(todo.tasks.indexOf(task), 1);
-    button.remove();
+    remove.remove();
     let node = document.getElementById(tasknode.id);
     if (node.parentNode) {
       node.parentNode.removeChild(node);
@@ -62,7 +87,9 @@ function createTaskNode(task, todo) {
   });
   tasknode.appendChild(checkbox);
   tasknode.appendChild(label);
-  tasknode.appendChild(button);
+  tasknode.appendChild(details);
+  tasknode.appendChild(remove);
+  tasknode.appendChild(detaildiv);
   return tasknode;
 }
 
